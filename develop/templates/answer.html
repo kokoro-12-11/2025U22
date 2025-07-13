@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>でっかい回覧板 - 回答投稿</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/answer.css') }}">
+    </head>
+    <body>
+        <header class="header">
+            <div class="title">
+                <small>でっかい</small>
+                <h1>回覧板</h1>
+            </div>
+            <div class="settings">
+                <a href="setteing.html">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="設定" class="gear_icon">
+                </a>
+            </div>
+        </header>
+
+        <main class="main">
+            <form action="#" method="post">
+                <h2 class="form_title">投稿</h2>
+                <p class="question">質問：〇〇〇〇〇〇〇〇〇〇〇</p>
+                <textarea id="answer" name="answer" placeholder="回答："></textarea>
+                <button type="submit">この内容で投稿する</button>
+            </form>
+        </main>
+
+    </body>
+</html>
