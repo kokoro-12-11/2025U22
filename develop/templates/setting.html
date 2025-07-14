@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>でっかい回覧板 - 設定変更</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/setting.css') }}">
+    </head>
+    <body>
+        <header class="header">
+            <div class="title">
+                <small>でっかい</small>
+                <h1>回覧板</h1>
+            </div>
+            <div class="settings">
+                <a href="setteing.html">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="設定" class="gear_icon">
+                </a>
+            </div>
+        </header>
+
+    <main class="main">
+        <h2 class="settings_title">設定変更</h2>
+        <form class="settings_form">
+            <div class="form_group">
+                <label for="username">ユーザー名</label>
+                <input type="text" id="username" name="username">
+            </div>
+
+            <div class="form_group">
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <div class="form_group">
+                <label for="password">パスワード</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="form_group">
+                <label for="pref">現在移住している都道府県</label>
+                <input type="text" id="pref" name="pref">
+            </div>
+
+            <div class="form_buttons">
+                <button type="button" class="logout_button">ログアウトする</button>
+                <button type="submit" class="submit_button">変更する</button>
+            </div>
+        </form>
+    </main>
+    </body>
+</html>

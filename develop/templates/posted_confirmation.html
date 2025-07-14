@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>でっかい回覧板 - 投稿確認</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/posted_confirmation.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="title">
+            <small>でっかい</small>
+            <h1>回覧板</h1>
+        </div>
+        <div class="settings">
+            <a href="setteing.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="設定" class="gear_icon">
+            </a>
+        </div>
+    </header>
+
+    <main class="main">
+        <h2 class="confirm_title">投稿確認</h2>
+
+        <form action="#" method="post" class="confirm_form">
+        <!-- 表示用ブロック -->
+            <div class="confirm_box">
+                <p class="question">質問：〇〇〇〇〇〇〇〇〇〇〇</p>
+                <p class="answer">
+                回答：<br>
+                〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇<br>
+                〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇<br>
+                〇〇〇〇〇〇
+                </p>
+            </div>
+
+        <!-- 実際に送信する hidden input -->
+            <input type="hidden" name="question" value="〇〇〇〇〇〇〇〇〇〇〇">
+            <input type="hidden" name="answer" value="〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇">
+
+            <button type="submit" class="submit_Wbtn">この内容で投稿する</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f3ee;
+    color: #5d7335;
+    height: 100vh;
+}
+
+.header {
+    background-color: #6b7f3e;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title small {
+    font-size: 14px;
+    display: block;
+}
+
+.title h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.settings .gear_icon {
+    width: 28px;
+    height: 28px;
+}
+
+.main {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.settings_title {
+        font-size: 28px;
+        margin-bottom: 40px;
+        text-align: left;
+        width: 60%;
+        margin: 0 auto 40px auto; /* 左寄せ + 中央余白調整 */
+}
+
+.settings_form {
+    width: 700px;
+    max-width: 90%;
+}
+
+.form_group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.form_group label {
+    width: 35%;
+    font-size: 18px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.form_group input {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #6b7f3e;
+    color: white;
+}
+
+.form_buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.logout_button,
+.submit_button {
+    width: 48%;
+    padding: 14px;
+    background-color: #6b7f3e;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.logout_button:hover,
+.submit_button:hover {
+    background-color: #5a6c32;
+}
