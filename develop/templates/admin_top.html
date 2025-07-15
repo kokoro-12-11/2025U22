@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>管理者トップ</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_top.css') }}">
+    </head>
+    <body>
+        <header class="header">
+            <div class="title">
+                <small>でっかい</small>
+            <h1>回覧板</h1>
+            </div>
+            <div class="settings">
+                <a href="setteing.html">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="設定" class="gear_icon">
+                </a>
+            </div>
+        </header>
+
+        <main class="main">
+            <div id="wrap">
+                <a href="admin_board_create.html" class="board_make">回覧板作成</a>
+            </div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f3ee;
+    color: #5d7335;
+    height: 100vh;
+}
+
+.header {
+    background-color: #6b7f3e;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title small {
+    font-size: 14px;
+    display: block;
+}
+
+.title h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.settings .gear_icon {
+    width: 28px;
+    height: 28px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px); /* ヘッダーの高さを引く */
+    text-align: center;
+}
+
+.check_mark {
+    font-size: 180px;       /* 大きいチェックマーク */
+    color: #6b7f3e;          /* 緑色 */
+    margin-bottom: 20px;
+    line-height: 1;
+}

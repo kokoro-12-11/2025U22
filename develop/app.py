@@ -63,5 +63,17 @@ def board_sent():
 def setting():
   return render_template('setting.html')
 
+@app.route('/admin_login')
+def admin_login():
+  return render_template('admin_login.html')
+
+@app.route('/admin_top')
+def admin_top():
+  return render_template('admin_top.html')
+
+@app.route('/aadmin_board_create')
+def admin_board_create():
+  return render_template('admin_board_create.html')
+
 if __name__ == "__main__":
   app.run(debug=True)
