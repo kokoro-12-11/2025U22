@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理者ログイン</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+  <div class="header">
+    <h1>管理者ログイン</h1>
+  </div>
+
+  <div class="login-container">
+    <form id="loginForm" onsubmit="return login()">
+      <label for="username">ユーザー名</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">パスワード</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">ログイン</button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>
