@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>回覧板(管理者)</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_board_create.css') }}">
+    </head>
+    <body>
+        <header  class="header">
+
+            <div class="header_left">
+                <p class="subtitle">でっかい</p>
+                <h1>回覧板(管理者)</h1>
+            </div>
+
+            <button class="logout_btn">ログアウト</button>
+
+        </header>
+
+        <main>
+            <h2>回覧板入力フォーム</h2>
+            <form class="form" action="admin_confirmation.html" method="post">
+                <label for="title">タイトル</label>
+                <input type="text" id="title" name="title">
+
+                <label for="content">質問内容</label>
+                <input type="text" id="content" name="content">
+
+                <label for="start">開始日</label>
+                <input type="text" id="start" name="start">
+
+                <button type="submit" class="submit_btn">内容確認へ</button>
+
+
+            </form>
+
+            <div class="ai_logo">
+                <span>AI</span>
+            </div>
+        </main>
+    </body>
+</html>
