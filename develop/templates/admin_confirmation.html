@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>入力内容確認</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_confirmation.css') }}" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="header_left">
+            <p class="subtitle">でっかい</p>
+            <h1>回覧板(管理者)</h1>
+            </div>
+            <button class="logout_btn">ログアウト</button>
+        </header>
+
+        <main>
+            <h2>入力内容確認</h2>
+
+            <!-- フォーム開始 -->
+            <form action="admin_completed.html" method="post">
+            <!-- hidden inputs -->
+                <input type="hidden" name="title" value="〇〇〇〇">
+                <input type="hidden" name="content" value="〇〇〇〇">
+                <input type="hidden" name="start" value="〇〇〇〇">
+
+                <!-- 表示内容 -->
+                <div class="confirm_box">
+                    <div class="row">
+                    <span class="label">タイトル：</span>
+                    <span class="value">〇〇〇〇</span>
+                    </div>
+                    <div class="row">
+                    <span class="label">質問内容：</span>
+                    <span class="value">〇〇〇〇</span>
+                    </div>
+                    <div class="row">
+                    <span class="label">開始日　：</span>
+                    <span class="value">〇〇〇〇</span>
+                    </div>
+                </div>
+
+                <!-- ボタン部分 -->
+                <div class="button_group">
+                    <button type="button" class="back_btn" onclick="history.back()">戻る</button>
+
+                    <button type="submit" class="submit_btn">完了</button>
+                </div>
+            </form>
+
+            <!-- AIロゴ -->
+            <div class="ai_logo">
+                <span>AI</span>
+            </div>
+        </main>
+    </body>
+</html>
