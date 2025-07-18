@@ -75,5 +75,13 @@ def admin_top():
 def admin_board_create():
   return render_template('admin_board_create.html')
 
+@app.route('/admin_confirmation')
+def admin_confirmation():
+  return render_template('admin_confirmation.html')
+
+@app.route('/admin_completed')
+def admin_completed():
+  return render_template('admin_completed.html')
+
 if __name__ == "__main__":
   app.run(debug=True)
