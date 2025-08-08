@@ -6,30 +6,37 @@ body {
   height: 100vh;
 }
 
-.header {
-  background-color: #6b7f3e;
-  color: white;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* admin_header */
+.admin_header {
+    background-color: #6b7f3e;
+    color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.title small {
-  font-size: 14px;
-  display: block;
+.admin_header_left .admin_subtitle {
+    margin: 0;
+    font-size: 12px;
 }
 
-.title h1 {
-  margin: 0;
-  font-size: 28px;
+.admin_header_left h1 {
+    margin: 0;
+    font-size: 28px;
 }
 
-.settings .gear-icon {
-  width: 28px;
-  height: 28px;
+.admin_logout_btn {
+    background-color: #dd2015;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
 }
 
+/* main */
 .main {
   display: flex;
   flex-direction: column;

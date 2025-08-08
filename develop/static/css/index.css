@@ -11,7 +11,7 @@ body {
 
 .left-panel {
     flex: 1;
-    background-image: url("../image/index_leftimage.png"); /* ← 画像ファイル名を適宜変更 */
+    background-image: url("../images/index_leftimage.png"); /* ← 画像ファイル名を適宜変更 */
     background-size: cover;       /* 画面いっぱいにフィット */
     background-position: center bottom;
     background-repeat: no-repeat; /* 繰り返しなし */

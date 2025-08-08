@@ -8,7 +8,8 @@ body {
     flex-direction: column;
 }
 
-.header {
+/* admin_header */
+.admin_header {
     background-color: #6b7f3e;
     color: #fff;
     padding: 20px 40px;
@@ -17,17 +18,17 @@ body {
     align-items: center;
 }
 
-.header_left .subtitle {
+.admin_header_left .admin_subtitle {
     margin: 0;
     font-size: 12px;
 }
 
-.header_left h1 {
+.admin_header_left h1 {
     margin: 0;
     font-size: 28px;
 }
 
-.logout_btn {
+.admin_logout_btn {
     background-color: #dd2015;
     color: white;
     border: none;
@@ -36,6 +37,7 @@ body {
     font-size: 14px;
     cursor: pointer;
 }
+
 
 /* メイン */
 main {
@@ -98,14 +100,16 @@ main h2 {
 }
 
 .back_btn:hover {
-    background-color: #bbb;
+    background-color: #ffbf00;
+    color: #fffcfc;
+
 }
 
 
 /* 確認ボタン */
 .submit_btn {
-    background-color: #667a3b;
-    color: white;
+    background-color: #89a44f;
+    color: #333;
     font-size: 18px;
     padding: 10px 55px;
     border: none;
@@ -113,6 +117,11 @@ main h2 {
     cursor: pointer;
 }
 
+.submit_btn:hover {
+    background-color: #608c00;
+    color: #fffcfc;
+
+}
 /* AIロゴ */
 .ai_logo {
     position: absolute;
