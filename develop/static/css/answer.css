@@ -6,35 +6,49 @@ body {
     height: 100vh;
 }
 
-.header {
-    background-color: #6b7f3e;
-    color: #fff;
-    padding: 20px 40px;
+/* ヘッダー */
+.header{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #6C8040;
+    color: #fff;
 }
-
-.title small {
-    font-size: 14px;
-    display: block;
+.logo_area{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
-
-.title h1 {
-    margin: 0;
-    font-size: 28px;
+.logo{
+    height: 6.3rem;
+    padding: 0 0 0 1rem;
+    aspect-ratio: 1/1;
 }
-
-.settings .gear_icon {
-    width: 28px;
-    height: 28px;
+.system_name{
+    font-size: 2rem;
+    font-weight: bold;
 }
-
+.user_area{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.user_name{
+    font-size: 1.5rem;
+}
+.setting img{
+    height: 3.5rem;
+    padding: 0.6rem 2rem 0 0;
+}
+.setting img:hover{
+    opacity: 0.5;
+    transition: 0.4s;
+}
 .main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 80px);
 }
 
 form {

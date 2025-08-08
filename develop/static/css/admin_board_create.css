@@ -8,7 +8,8 @@ body {
   flex-direction: column;
 }
 
-.header {
+/* admin_header */
+.admin_header {
   background-color: #6b7f3e;
   color: #fff;
   padding: 20px 40px;
@@ -17,17 +18,17 @@ body {
   align-items: center;
 }
 
-.header_left .subtitle {
+.admin_header_left .admin_subtitle {
   margin: 0;
   font-size: 12px;
 }
 
-.header_left h1 {
+.admin_header_left h1 {
   margin: 0;
   font-size: 28px;
 }
 
-.logout_btn {
+.admin_logout_btn {
   background-color: #dd2015;
   color: white;
   border: none;

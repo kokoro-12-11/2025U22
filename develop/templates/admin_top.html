@@ -3,20 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title>管理者トップ</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_top.css') }}">
     </head>
     <body>
-        <header class="header">
-            <div class="title">
-                <small>でっかい</small>
-            <h1>回覧板</h1>
+        <header class="admin_header">
+            <div class="admin_header_left">
+            <p class="admin_subtitle">でっかい</p>
+            <h1>回覧板(管理者)</h1>
             </div>
-            <div class="settings">
-                <a href="setteing.html">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="設定" class="gear_icon">
-                </a>
-            </div>
+            <button class="admin_logout_btn">ログアウト</button>
         </header>
 
         <main class="main">

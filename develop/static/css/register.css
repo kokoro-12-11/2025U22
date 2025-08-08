@@ -19,7 +19,7 @@ body {
 .register-container {
     background-color: #6b7f3e;
     padding: 0 20px;
-    height: calc(98.5vh - 140px);
+    height: calc(90vh - 80px);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
