@@ -3,6 +3,9 @@ body{
     height: 100%;
     background-color: #F3F4F0;
 }
+main{
+    position: relative;
+}
 
 /* ヘッダー */
 .header{
@@ -42,4 +45,41 @@ body{
 .setting img:hover{
     opacity: 0.5;
     transition: 0.4s;
+}
+
+
+
+/* 47都道府県 */
+#japan_map{
+    width: 100%;
+    margin: 1rem 0 0 0;
+}
+.geolonia-svg-map{
+    width: 100%;
+    height: 43.5rem;
+}
+
+.geolonia-svg-map .prefecture{
+    fill: #c6ee6f;
+    stroke: #666666;
+    cursor: pointer;
+}
+
+.geolonia-svg-map .boundary-line{
+    stroke: #999999;
+}
+
+
+
+/* 地図下のテキスト */
+#hover-instruction {
+  position: absolute;
+  bottom: 5vh;
+  right: 4vw;
+  font-size: 1.4rem;
+  color: #6C8040;
+  background-color: white;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  border: 2px dotted red;
 }

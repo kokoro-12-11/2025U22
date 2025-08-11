@@ -27,20 +27,17 @@
         </div>
 
         <div id="japan_map">
-            <!-- SVG地図をここに埋め込む予定 -->
+            {% include 'map-full.svg' %}
         </div>
 
         <div id="hover-instruction">
-            回覧板を見たい都道府県にカーソルを合わせてね！
+            回覧板を見たい都道府県をクリックしてね！
         </div>
 
         <!-- モーダル -->
-         <div id="modal" class="modal_hidden">
-            <div class="modal_content">
-                <span class="close_button" onclick="closeModal()">&times;</span>
-                <img id="report_image" src="" alt="回覧板画像">
-            </div>
-         </div>
     </main>
+    
+    <script src="{{ url_for('static', filename='js/top.js') }}"></script>
+
 </body>
 </html>
