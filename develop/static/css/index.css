@@ -51,6 +51,8 @@ h1 {
     font-size: 1.2rem;
     cursor: pointer;
     border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
     transition: background-color 0.3s;
 }
 

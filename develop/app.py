@@ -75,7 +75,7 @@ def admin_login():
 def admin_top():
   return render_template('admin_top.html')
 
-@app.route('/aadmin_board_create')
+@app.route('/admin_board_create')
 def admin_board_create():
   return render_template('admin_board_create.html')
 
