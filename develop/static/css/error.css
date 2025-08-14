@@ -1,0 +1,40 @@
+/* 共通設定 */
+body {
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+    background-color: #f0f1ec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* 大きな数字（エラーコード） */
+.error_code {
+    font-size: 96px;
+    color: #6b7f3e;
+    margin-bottom: 10px;
+}
+
+/* 説明文 */
+.error_message {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* ボタン */
+.error_btn {
+    background-color: #6b7f3e;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+.error_btn:hover {
+    background-color: #5a6a33;
+}
