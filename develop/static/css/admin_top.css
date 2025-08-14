@@ -32,8 +32,12 @@ body{
     border-radius: 20px;
     font-size: 14px;
     cursor: pointer;
+    text-decoration: none; /* aタグの場合はこれで下線を消す */
+    display: inline-block; /* aタグにpaddingを効かせる */
 }
-
+.admin_logout_btn:hover {
+    background-color:rgb(255, 13, 0);
+}
 
 /* main */
 

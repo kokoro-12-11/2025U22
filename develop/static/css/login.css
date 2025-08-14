@@ -61,3 +61,21 @@ button {
 button:hover {
     opacity: 0.9;
 }
+
+/* 新規登録 */
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-link a {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: underline;
+    transition: opacity 0.3s;
+}
+
+.signup-link a:hover {
+    opacity: 0.8;
+}

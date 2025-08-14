@@ -29,13 +29,18 @@ body {
 }
 
 .admin_logout_btn {
-  background-color: #dd2015;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  cursor: pointer;
+    background-color: #dd2015;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none; /* aタグの場合はこれで下線を消す */
+    display: inline-block; /* aタグにpaddingを効かせる */
+}
+.admin_logout_btn:hover {
+    background-color:rgb(255, 13, 0);
 }
 
 /* メイン */

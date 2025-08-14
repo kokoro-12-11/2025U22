@@ -75,3 +75,20 @@ button {
 button:hover {
     opacity: 0.9;
 }
+
+/* 登録済み */
+.login-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-link a {
+    color: #ffffff;           /* フォーム背景が濃い緑なので白文字 */
+    font-size: 18px;
+    text-decoration: underline;
+    transition: opacity 0.3s;
+}
+
+.login-link a:hover {
+    opacity: 0.8;
+}

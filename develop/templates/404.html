@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="js">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404</title>
-</head>
-<body>
-  <h1>404エラー</h1>
-  <pre>{{ traceback }}</pre>
-  <button onclick="history.back()">戻る</button>
-</body>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>404 - ページが見つかりません</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/error.css') }}" />
+  </head>
+  <body>
+      <h1 class="error_code">404</h1>
+      <p class="error_message">お探しのページは見つかりませんでした。</p>
+      <a href="/" class="error_btn">トップへ戻る</a>
+  </body>
 </html>
