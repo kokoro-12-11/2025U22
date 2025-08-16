@@ -67,6 +67,10 @@ def board_sent():
 def setting():
   return render_template('setting.html')
 
+@app.route('/setting_completed')
+def setting_completed():
+  return render_template('setting_completed.html')
+
 @app.route('/admin_login')
 def admin_login():
   return render_template('admin_login.html')

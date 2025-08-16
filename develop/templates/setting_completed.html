@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>でっかい回覧板 - 変更完了</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/board_sent.css') }}">
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo_area">
+                <a href="/top"><img src="/static/images/logo.png" class="logo" alt="ロゴ"></a>
+                <span class="system_name">でっかい回覧板</span>
+            </div>
+            <div class="user_area">
+                <span class="user_name">○○さん</span>
+                <a href="/setting" class="setting"><img class="setting_image" src="/static/images/setting_icon.png" alt="歯車アイコン"></a>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="check_mark">✔</div>
+            <p class="message">変更が完了しました！</p>
+            <a href="/top" class="back-button">トップページに戻る</a>
+        </main>
+    </body>
+</html>
