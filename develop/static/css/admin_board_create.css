@@ -99,7 +99,7 @@ main h2 {
   left: 20px;
 }
 
-.ai_logo span {
+.ai_logo button {
   display: inline-block;
   font-size: 18px;
   font-weight: bold;
@@ -109,8 +109,8 @@ main h2 {
   position: relative;
 }
 
-.ai_logo span::before,
-.ai_logo span::after {
+.ai_logo button::before,
+.ai_logo button::after {
   content: "";
   position: absolute;
   width: 60px;
