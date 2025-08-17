@@ -3,12 +3,14 @@ import os
 
 ##### blueprint #####
 from routes.route import main_route
+from routes.board_create import board_create_bp
 
 app = Flask(__name__)
 app.secret_key = '2025u22_key'
 
 ##### blueprintの登録 #####
 app.register_blueprint(main_route)
+app.register_blueprint(board_create_bp) 
 
 ##### エラーハンドル #####
 @app.errorhandler(404)
