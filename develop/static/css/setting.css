@@ -66,6 +66,10 @@ body {
     max-width: 90%;
 }
 
+/* placeholderが背景で見えにくいため設定 */
+::placeholder {
+  color: #cbcbcb; 
+}
 .form_group {
     display: flex;
     justify-content: space-between;
@@ -88,6 +92,21 @@ body {
     background-color: #6b7f3e;
     color: white;
 }
+
+.form_group select {
+    width: 63%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+     background-color: #6b7f3e;
+    color: #d7d7d7;
+    appearance: none; /* ブラウザのデフォルト矢印を消す（必要に応じて） */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0; /* inputと統一感を出す場合 */
+    box-sizing: border-box;
+}
+
 
 .form_buttons {
     display: flex;

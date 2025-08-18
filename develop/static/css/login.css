@@ -1,3 +1,17 @@
+/* 元から備わっているパスワード表示非表示は最初しか出ないため、
+自前のアイコンその動きができるようにするためのコードです */
+/* Edge / IE の場合 */
+::-ms-reveal {
+  display: none;
+}
+
+/* Chrome / Safari の場合 */
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-textfield-decoration-container {
+  display: none !important;
+}
+
+
 body {
     margin: 0;
     font-family: sans-serif;

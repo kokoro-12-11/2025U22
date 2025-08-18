@@ -20,7 +20,13 @@
             <input type="email" id="email" name="email" required>
 
             <label for="password">パスワード</label>
+            <div class="password_wrapper">
             <input type="password" id="password" name="password" required>
+            <img src="{{ url_for('static', filename='images/eye_off.png') }}" 
+                alt="パスワード表示切替" 
+                id="togglePassword" 
+                class="toggle_password">
+            </div>
 
 
             <label for="location">現在移住している都道府県</label>
@@ -84,6 +90,20 @@
         </form>
     </div>
 
-  <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+    <script>
+      const togglePassword = document.getElementById('togglePassword');
+      const passwordField = document.getElementById('password');
+
+      // Flask で生成されたパスを HTML 側で展開して変数に格納
+      const eyeClosed = "{{ url_for('static', filename='images/eye_off.png') }}";
+      const eyeOpen   = "{{ url_for('static', filename='images/eye.png') }}";
+
+      togglePassword.addEventListener('click', function () {
+          const isPassword = passwordField.type === 'password';
+          passwordField.type = isPassword ? 'text' : 'password';
+          this.src = isPassword ? eyeOpen : eyeClosed;
+      });
+    </script>
+
 </body>
 </html>
