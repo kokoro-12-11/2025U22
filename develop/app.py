@@ -1,16 +1,18 @@
-from flask import Flask,render_template
+from flask import Flask,render_template, session
 import os
 
 ##### blueprint #####
 from routes.route import main_route
-from routes.board_create import board_create_bp
+from routes.auth import auth_bp
+from routes.admin import admin_bp
 
 app = Flask(__name__)
 app.secret_key = '2025u22_key'
 
 ##### blueprintの登録 #####
 app.register_blueprint(main_route)
-app.register_blueprint(board_create_bp) 
+app.register_blueprint(auth_bp)
+app.register_blueprint(admin_bp)
 
 ##### エラーハンドル #####
 @app.errorhandler(404)
@@ -92,6 +94,14 @@ def admin_confirmation():
 @app.route('/admin_completed')
 def admin_completed():
   return render_template('admin_completed.html')
+
+@app.context_processor
+def inject_user_name():
+    return dict(user_name=session.get('user_name'))
+  
+@app.context_processor
+def inject_admin_status():
+    return dict(admin_logged_in=session.get('admin_logged_in'))
 
 if __name__ == "__main__":
   app.run(debug=True)
