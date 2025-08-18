@@ -1,6 +1,7 @@
 # admin.py
 
 from flask import Blueprint, render_template, request, redirect, flash, session, url_for
+from datetime import date
 
 admin_bp = Blueprint('admin', __name__)
 
@@ -32,3 +33,13 @@ def admin_logout():
     session.pop('admin_logged_in', None)
     flash("ログアウトしました", "info")
     return redirect(url_for('admin.admin_login'))
+
+# 回覧板入力画面（admin_board_create.html）
+@admin_bp.route('/admin_board_create', methods=['GET'])
+def admin_board_create():
+    if not session.get('admin_logged_in'):
+        flash("管理者ログインが必要です", "warning")
+        return redirect(url_for('admin.admin_login'))
+
+    today = date.today().isoformat()
+    return render_template('admin_board_create.html', today=today)

@@ -22,19 +22,19 @@
             <!-- フォーム開始 -->
             <form action="admin_completed.html" method="post">
             <!-- hidden inputs -->
-                <input type="hidden" name="title" value="〇〇〇〇">
+                <input type="hidden" name="prefecture_id" value="〇〇〇〇">
                 <input type="hidden" name="content" value="〇〇〇〇">
                 <input type="hidden" name="start" value="〇〇〇〇">
 
                 <!-- 表示内容 -->
                 <div class="confirm_box">
                     <div class="row">
-                    <span class="label">タイトル：</span>
-                    <span class="value">{{ data.title }}</span>
-                    </div>
-                    <div class="row">
                     <span class="label">質問内容：</span>
                     <span class="value">{{ data.content }}</span>
+                    </div>
+                    <div class="row">
+                    <span class="label">対象都道府県：</span>
+                    <span class="value">{{ data.prefecture_name }}</span>
                     </div>
                     <div class="row">
                     <span class="label">開始日　：</span>
