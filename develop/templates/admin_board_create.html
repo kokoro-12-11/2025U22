@@ -18,7 +18,7 @@
 
         <main>
             <h2>回覧板入力フォーム</h2>
-            <form class="form" action="admin_confirmation.html" method="post">
+            <form class="form" action="/admin_board_confirm" method="post">
                 <label for="title">タイトル</label>
                 <input type="text" id="title" name="title">
 
@@ -34,8 +34,10 @@
             </form>
 
             <div class="ai_logo">
-                <span>AI</span>
+                <button type="button" class="ai_btn" id="ai_button">AI</button>
             </div>
+
+            <script src="{{ url_for('static', filename='js/board_create.js') }}"></script>
         </main>
     </body>
 </html>
