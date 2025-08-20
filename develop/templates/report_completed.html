@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>集計完了</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_completed.css') }}">
+    </head>
+    <body>
+        <header class="admin_header">
+            
+            <div class="admin_header_left">
+                <p class="admin_subtitle">でっかい</p>
+                <h1>回覧板(管理者)</h1>
+            </div>
+            <a href="{{ url_for('admin.admin_logout') }}" class="admin_logout_btn">ログアウト</a>
+
+        </header>
+
+        <main class="main">
+            <div class="check_mark">✔</div>
+            <p class="message">集計完了しました！</p>
+            <a href="/admin_top" class="back-button">管理者トップページにもどる</a>
+        </main>
+    </body>
+</html>
