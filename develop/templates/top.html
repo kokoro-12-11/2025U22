@@ -27,7 +27,7 @@
         </div>
 
         <div id="japan_map">
-            {% include 'map-full.svg' %}
+            {% include 'map-full2.svg' %}
         </div>
 
         <div id="hover-instruction">
@@ -35,6 +35,14 @@
         </div>
 
         <!-- モーダル -->
+        <div id="board-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div id="board-image-container">
+                    <!-- 画像 or メッセージがここに入る -->
+                </div>
+            </div>
+        </div>
     </main>
     
     <script src="{{ url_for('static', filename='js/top.js') }}"></script>

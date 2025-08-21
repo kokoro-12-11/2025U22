@@ -21,3 +21,47 @@ document.addEventListener('DOMContentLoaded', () => {
     pref.addEventListener('mouseleave', () => paint(''));
   });
 });
+
+
+
+// モーダル
+document.addEventListener("DOMContentLoaded", () => {
+    // 都道府県クリックイベント
+    document.querySelectorAll('[data-pref]').forEach(region => {
+        region.addEventListener('click', () => {
+            const prefId = region.getAttribute('data-pref');
+
+            fetch(`/get_board_image/${prefId}`)
+                .then(res => res.json())
+                .then(data => {
+                    const modal = document.getElementById('board-modal');
+                    const container = document.getElementById('board-image-container');
+                    container.innerHTML = '';
+
+                    if (data.image_path) {
+                        const img = document.createElement('img');
+                        img.src = '/' + data.image_path;
+                        img.alt = "回覧板画像";
+                        container.appendChild(img);
+                    } else {
+                        container.innerHTML = "<p>回覧板がありません。</p>";
+                    }
+
+                    modal.classList.remove('hidden');
+                });
+        });
+    });
+
+    // モーダルを閉じる
+    document.querySelector(".close-button").addEventListener("click", () => {
+        document.getElementById("board-modal").classList.add("hidden");
+    });
+
+    // モーダル外クリックで閉じる
+    document.getElementById("board-modal").addEventListener("click", (e) => {
+        if (e.target.id === "board-modal") {
+            e.target.classList.add("hidden");
+        }
+    });
+});
+

@@ -10,6 +10,7 @@ from routes.admin_completed import admin_completed_bp
 from routes.admin_confirmation import admin_confirmation_bp
 from routes.answer import answer_bp
 from routes.setting import setting_bp
+from routes.top import top_bp
 
 app = Flask(__name__)
 app.secret_key = '2025u22_key'
@@ -23,6 +24,7 @@ app.register_blueprint(admin_confirmation_bp)
 app.register_blueprint(admin_completed_bp)
 app.register_blueprint(answer_bp)
 app.register_blueprint(setting_bp)
+app.register_blueprint(top_bp)
 
 ##### エラーハンドル #####
 @app.errorhandler(404)
