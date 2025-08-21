@@ -34,6 +34,9 @@ def setting():
             """, (username, email, password, location, user_id))
 
             conn.commit()
+            
+            session['user_name'] = username  
+            
             flash("設定を更新しました！", "success")
             return redirect(url_for('setting.setting_completed'))
 
