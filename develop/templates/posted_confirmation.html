@@ -20,22 +20,16 @@
     <main class="main">
         <h2 class="confirm_title">投稿確認</h2>
 
-        <form action="#" method="post" class="confirm_form">
+        <form action="{{ url_for('answer.posted_confirmation') }}" method="post" class="confirm_form">
         <!-- 表示用ブロック -->
             <div class="confirm_box">
-                <p class="question">質問：〇〇〇〇〇〇〇〇〇〇〇</p>
+                <p class="question">質問：{{ question_content }}</p>
                 <p class="answer">
-                回答：<br>
-                〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇<br>
-                〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇<br>
-                〇〇〇〇〇〇
+                回答：<br>{{ answer_text }}
                 </p>
             </div>
 
-        <!-- 実際に送信する hidden input -->
-            <input type="hidden" name="question" value="〇〇〇〇〇〇〇〇〇〇〇">
-            <input type="hidden" name="answer" value="〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇">
-
+            
             <button type="submit" class="submit_btn">この内容で投稿する</button>
         </form>
     </main>
