@@ -105,6 +105,7 @@ def admin_login():
                 if admin_user['role'] == 'admin':
                     session['admin_logged_in'] = True
                     session['admin_user_name'] = admin_user['user_name']
+                    session['admin_user_id'] = admin_user['user_id']
                     flash("管理者としてログインしました", "success")
                     return redirect("/admin_top")
                 else:
@@ -135,6 +136,7 @@ def admin_login():
 def admin_logout():
     session.pop('admin_logged_in', None)
     session.pop('admin_user_name', None)
+    session.pop('admin_user_id', None)
     flash("管理者をログアウトしました", "info")
     return redirect(url_for('admin.admin_login'))
 
