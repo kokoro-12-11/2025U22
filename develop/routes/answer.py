@@ -15,18 +15,24 @@ db_config = {
 }
 
 # 回答入力画面
-@answer_bp.route('/answer/<int:post_id>', methods=['GET'])
-def answer(post_id):
+@answer_bp.route('/answer', methods=['GET'])
+def answer():
     question_content = None
-    board_id = None
+    board_id = session.get('board_id')
+    print(board_id)
+    
     try:
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT board_id, post_content FROM posts WHERE post_id = %s", (post_id,))
+        
+        cursor.execute("SELECT post_id FROM boards WHERE board_id = %s", (board_id,))
+        row = cursor.fetchone()
+        post_id = row['post_id']
+        
+        cursor.execute("SELECT post_content FROM posts WHERE post_id = %s", (post_id,))
         row = cursor.fetchone()
         if row:
             question_content = row['post_content']
-            board_id = row['board_id']
     except mysql.connector.Error as err:
         print("DB Error (fetch question):", err)
     finally:
@@ -43,6 +49,7 @@ def answer(post_id):
         user_name=session.get('user_name')
     )
     
+    
 # 回答入力フォームの送信を受けるルート
 @answer_bp.route('/submit_answer', methods=['POST'])
 def submit_answer():
@@ -53,6 +60,7 @@ def submit_answer():
     print("DEBUG: post_id=", session['post_id'], " board_id=", session['board_id'])
     
     return redirect(url_for('answer.posted_confirmation'))
+
 
 
 # 投稿確認画面
