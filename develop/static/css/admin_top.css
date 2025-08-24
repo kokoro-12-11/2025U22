@@ -50,7 +50,7 @@ body{
     text-align: center;
 }
 
-.board_make{
+.board_make, .admin_report_btn{
     background-color: #667744;
     color: #fff;
     border: none;
@@ -62,6 +62,7 @@ body{
 
 }
 
-.board_make:hover {
+.board_make:hover, .admin_report_btn:hover {
     background-color: #556633;
 }
+
