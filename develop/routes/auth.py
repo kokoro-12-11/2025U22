@@ -59,7 +59,7 @@ def register():
             return redirect('/register')
 
         finally:
-            if conn.is_connected():
+            if conn:
                 cursor.close()
                 conn.close()
 
@@ -99,7 +99,7 @@ def login():
             return redirect("/login")
 
         finally:
-            if conn.is_connected():
+            if conn:
                 cursor.close()
                 conn.close()
 
