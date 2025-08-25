@@ -167,3 +167,49 @@ main {
     font-size: 1.2rem;
     color: #444;
 }
+
+
+/* 通知バナー */
+/* 通知エリア（非表示時は高さ0に保つ） */
+#notice_area {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+/* 通知リンク */
+#open_answer {
+    display: inline-block;
+    background-color: #FFD966; /* 明るい黄色 */
+    color: #4B3B00;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.4rem;
+    border: 2px solid #D1A100;
+    border-radius: 1rem;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: fadeInSlideDown 0.5s ease-out;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#open_answer:hover {
+    background-color: #ffe97a;
+    transform: translateY(-2px);
+}
+
+/* アニメーション定義 */
+@keyframes fadeInSlideDown {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+
