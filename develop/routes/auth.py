@@ -74,7 +74,7 @@ def login():
 
         try:
             conn = mysql.connector.connect(**db_config)
-            cursor = conn.cursor(dictionary=True)
+            cursor = conn.cursor(dictionary=True, buffered=True)
 
             # ユーザー名でユーザー取得
             cursor.execute("SELECT * FROM users WHERE user_name = %s", (username,))
