@@ -105,7 +105,7 @@ main h2 {
 }
 
 /* AIロゴ */
-.ai_logo {
+/* .ai_logo {
   position: absolute;
   bottom: 10px;
   left: 20px;
@@ -132,4 +132,30 @@ main h2 {
   top: 0;
   left: 0;
   transform: rotate(45deg);
+} */
+
+
+
+.ai_logo {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+}
+
+.ai_btn {
+    background-color: #ff8c42; /* オレンジ色 */
+    color: white;
+    border: none;
+    border-radius: 50px; /* 丸くする */
+    padding: 20px 50px; /* 高さと幅 */
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease; /* hoverの動きを滑らかに */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 少し影をつける */
+}
+
+.ai_btn:hover {
+    transform: translateY(-4px); /* 少し上に浮く */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* 影を強く */
 }
