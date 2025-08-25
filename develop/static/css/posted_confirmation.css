@@ -7,7 +7,8 @@ body {
 }
 
 /* ヘッダー */
-.header{
+.header {
+    flex: 0 0 3rem; /* 高さ固定 */
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -15,36 +16,42 @@ body {
     background-color: #6C8040;
     color: #fff;
 }
-.logo_area{
+
+/* ロゴ・システム名 */
+.logo_area {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
-.logo{
-    height: 6.3rem;
+.logo {
+    height: 3.5rem;
     padding: 0 0 0 1rem;
     aspect-ratio: 1/1;
 }
-.system_name{
-    font-size: 2rem;
+.system_name {
+    font-size: 1.6rem;
     font-weight: bold;
 }
-.user_area{
+
+/* ユーザーエリア */
+.user_area {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
-.user_name{
-    font-size: 1.5rem;
+.user_name {
+    font-size: 1.2rem;
 }
-.setting img{
-    height: 3.5rem;
-    padding: 0.6rem 2rem 0 0;
+.setting img {
+    height: 2.5rem;
+    padding: 0.3rem 1rem 0 0;
 }
-.setting img:hover{
+.setting img:hover {
     opacity: 0.5;
     transition: 0.4s;
 }
+
+
 .main {
     text-align: center;
     padding: 60px 20px;
