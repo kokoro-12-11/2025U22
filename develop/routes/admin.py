@@ -56,7 +56,6 @@ def admin_register():
             cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
             existing_user = cursor.fetchone()
             if existing_user:
-                flash("そのメールアドレスはすでに登録されています", "warning")
                 return redirect('/admin_register')
 
             # 管理者として登録
@@ -66,12 +65,10 @@ def admin_register():
             """, (username, email, hashed_password, prefecture_id))
             conn.commit()
 
-            flash("管理者アカウントを登録しました。ログインしてください。", "success")
             return redirect('/admin_login')
 
         except mysql.connector.Error as err:
             print("DB Error:", err)
-            flash("登録中にエラーが発生しました", "danger")
             return redirect('/admin_register')
 
         finally:
@@ -106,10 +103,8 @@ def admin_login():
                     session['admin_logged_in'] = True
                     session['admin_user_name'] = admin_user['user_name']
                     session['admin_user_id'] = admin_user['user_id']
-                    # flash("管理者としてログインしました", "success")
                     return redirect("/admin_top")
                 else:
-                    flash("管理者権限がありません", "danger")
                     return redirect("/admin_login")
 
             flash("ユーザー名またはパスワードが正しくありません", "danger")
@@ -117,7 +112,6 @@ def admin_login():
 
         except mysql.connector.Error as err:
             print("DB Error:", err)
-            flash("ログイン中にエラーが発生しました", "danger")
             return redirect('/admin_login')
 
         finally:
@@ -137,7 +131,6 @@ def admin_logout():
     session.pop('admin_logged_in', None)
     session.pop('admin_user_name', None)
     session.pop('admin_user_id', None)
-    # flash("管理者をログアウトしました", "info")
     return redirect(url_for('admin.admin_login'))
 
 
@@ -146,7 +139,6 @@ def admin_logout():
 @admin_bp.route('/admin_board_create', methods=['GET'])
 def admin_board_create():
     if not session.get('admin_logged_in'):
-        flash("管理者ログインが必要です", "warning")
         return redirect(url_for('admin.admin_login'))
 
     today = date.today().isoformat()
@@ -161,7 +153,6 @@ def admin_board_create():
 def admin_report():
     print("✅ admin_report に入りました")
     if not session.get('admin_logged_in'):
-        flash("管理者ログインが必要です", "warning")
         return redirect(url_for('admin.admin_login'))
 
     try:
@@ -187,7 +178,6 @@ def admin_report():
         latest_board_ids = [row['board_id'] for row in latest_boards]
 
         if not latest_board_ids:
-            flash("回覧板が存在しません", "info")
             return redirect(url_for('admin.admin_top'))
 
         # 最新のboard_idに対応する投稿と回答を取得
@@ -271,7 +261,6 @@ def admin_report():
 
     except mysql.connector.Error as err:
         print("DB Error:", err)
-        flash("集計中にエラーが発生しました", "danger")
         return redirect(url_for('admin.admin_top'))
 
     finally:

@@ -81,13 +81,10 @@ def posted_confirmation():
                 session.get('answer_text')
             ))
             conn.commit()
-
-            flash("回答を投稿しました！", "success")
             return redirect(url_for('answer.board_sent'))
 
         except mysql.connector.Error as err:
             print("DB Error (insert):", err)
-            flash(f"投稿中にエラーが発生しました: {err}", "danger")
             return redirect(url_for('answer.answer', post_id=session.get('post_id')))
 
         finally:

@@ -41,13 +41,10 @@ def setting():
             conn.commit()
             
             session['user_name'] = username  
-            
-            flash("設定を更新しました！", "success")
             return redirect(url_for('setting.setting_completed'))
 
         except mysql.connector.Error as err:
             print("DB Error:", err)
-            flash("更新中にエラーが発生しました", "danger")
             return redirect(url_for('setting.setting'))
 
         finally:
