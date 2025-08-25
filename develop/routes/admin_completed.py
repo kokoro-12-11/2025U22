@@ -43,7 +43,7 @@ def completed_page():
         cursor.execute("UPDATE boards SET post_id = %s WHERE board_id = %s", (post_id, board_id))
         
         
-         #最初の受信者を県内からランダム選択
+        # 県内ユーザーを取得
         cursor.execute("""
             SELECT user_id FROM users
             WHERE prefecture_id = %s
@@ -51,13 +51,20 @@ def completed_page():
         users = cursor.fetchall()
 
         if users:
-            first_user = random.choice(users)["user_id"]
+            # board_members に全員 owner 登録
+            for u in users:
+                cursor.execute("""
+                    INSERT INTO board_members (board_id, user_id, role)
+                    VALUES (%s, %s, 'owner')
+                """, (board_id, u['user_id']))
 
-            # board_members に owner 登録
+            # ランダムで editor を1人選ぶ
+            editor_id = random.choice([u['user_id'] for u in users])
             cursor.execute("""
-                INSERT INTO board_members (board_id, user_id, role)
-                VALUES (%s, %s, 'owner')
-            """, (board_id, first_user))        
+                UPDATE board_members
+                SET role = 'editor'
+                WHERE board_id = %s AND user_id = %s
+            """, (board_id, editor_id))    
         
         
         

@@ -119,6 +119,50 @@ def posted_confirmation():
     )
 
 
+
 @answer_bp.route('/board_sent')
 def board_sent():
+    board_id = session.get('board_id')
+    user_id = session.get('user_id')
+
+    if not board_id or not user_id:
+        return redirect('/top')
+
+    try:
+        conn = mysql.connector.connect(**db_config)
+        cursor = conn.cursor(dictionary=True)
+
+        #回答者を viewer に変更
+        cursor.execute("""
+            UPDATE board_members
+            SET role = 'viewer'
+            WHERE board_id = %s AND user_id = %s
+        """, (board_id, user_id))
+
+        #まだ editor になっていない owner を取得
+        cursor.execute("""
+            SELECT user_id FROM board_members
+            WHERE board_id = %s AND role = 'owner'
+        """, (board_id,))
+        remaining_users = cursor.fetchall()
+
+        if remaining_users:
+            import random
+            next_editor = random.choice(remaining_users)['user_id']
+
+            #新しい editor に role 更新
+            cursor.execute("""
+                UPDATE board_members
+                SET role = 'editor'
+                WHERE board_id = %s AND user_id = %s
+            """, (board_id, next_editor))
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+    except Exception as e:
+        print("DBエラー:", e)
+        return "エラーが発生しました", 500
+
     return render_template('board_sent.html')

@@ -30,7 +30,7 @@ def top_page():
 
         cursor.execute("""
             SELECT board_id,role FROM board_members
-            WHERE user_id = %s AND role = 'owner'
+            WHERE user_id = %s AND role = 'editor'
         """, (user_id,))
         result = cursor.fetchone()
 
