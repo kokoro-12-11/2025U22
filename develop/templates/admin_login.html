@@ -10,6 +10,16 @@
   <div class="header">
     <h1>管理者ログイン</h1>
   </div>
+  
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-messages">
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
 
   <div class="login-container">
     <form id="loginForm" method="POST" action="/admin_login">

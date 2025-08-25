@@ -115,3 +115,40 @@ button:hover {
 .signup-link a:hover {
     opacity: 0.8;
 }
+
+
+
+/* フラッシュメッセージ */
+.flash-messages {
+  position: fixed;
+  top: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+
+.alert {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
