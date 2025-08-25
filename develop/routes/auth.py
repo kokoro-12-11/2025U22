@@ -59,7 +59,7 @@ def register():
             return redirect('/register')
 
         finally:
-            if conn.is_connected():
+            if conn:
                 cursor.close()
                 conn.close()
 
@@ -87,7 +87,7 @@ def login():
             if user and check_password_hash(user['password'], password):
                 session['user_id'] = user['user_id']
                 session['user_name'] = user['user_name']
-                flash("ログインに成功しました", "success")
+                # flash("ログインに成功しました", "success")
                 return redirect("/top")
             else:
                 flash("ユーザー名またはパスワードが正しくありません", "danger")
@@ -99,7 +99,7 @@ def login():
             return redirect("/login")
 
         finally:
-            if conn.is_connected():
+            if conn:
                 cursor.close()
                 conn.close()
 

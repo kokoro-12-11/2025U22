@@ -15,18 +15,24 @@ db_config = {
 }
 
 # 回答入力画面
-@answer_bp.route('/answer/<int:post_id>', methods=['GET'])
-def answer(post_id):
+@answer_bp.route('/answer', methods=['GET'])
+def answer():
     question_content = None
-    board_id = None
+    board_id = session.get('board_id')
+    print(board_id)
+    
     try:
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT board_id, post_content FROM posts WHERE post_id = %s", (post_id,))
+        
+        cursor.execute("SELECT post_id FROM boards WHERE board_id = %s", (board_id,))
+        row = cursor.fetchone()
+        post_id = row['post_id']
+        
+        cursor.execute("SELECT post_content FROM posts WHERE post_id = %s", (post_id,))
         row = cursor.fetchone()
         if row:
             question_content = row['post_content']
-            board_id = row['board_id']
     except mysql.connector.Error as err:
         print("DB Error (fetch question):", err)
     finally:
@@ -43,6 +49,7 @@ def answer(post_id):
         user_name=session.get('user_name')
     )
     
+    
 # 回答入力フォームの送信を受けるルート
 @answer_bp.route('/submit_answer', methods=['POST'])
 def submit_answer():
@@ -53,6 +60,7 @@ def submit_answer():
     print("DEBUG: post_id=", session['post_id'], " board_id=", session['board_id'])
     
     return redirect(url_for('answer.posted_confirmation'))
+
 
 
 # 投稿確認画面
@@ -111,6 +119,50 @@ def posted_confirmation():
     )
 
 
+
 @answer_bp.route('/board_sent')
 def board_sent():
+    board_id = session.get('board_id')
+    user_id = session.get('user_id')
+
+    if not board_id or not user_id:
+        return redirect('/top')
+
+    try:
+        conn = mysql.connector.connect(**db_config)
+        cursor = conn.cursor(dictionary=True)
+
+        #回答者を viewer に変更
+        cursor.execute("""
+            UPDATE board_members
+            SET role = 'viewer'
+            WHERE board_id = %s AND user_id = %s
+        """, (board_id, user_id))
+
+        #まだ editor になっていない owner を取得
+        cursor.execute("""
+            SELECT user_id FROM board_members
+            WHERE board_id = %s AND role = 'owner'
+        """, (board_id,))
+        remaining_users = cursor.fetchall()
+
+        if remaining_users:
+            import random
+            next_editor = random.choice(remaining_users)['user_id']
+
+            #新しい editor に role 更新
+            cursor.execute("""
+                UPDATE board_members
+                SET role = 'editor'
+                WHERE board_id = %s AND user_id = %s
+            """, (board_id, next_editor))
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+    except Exception as e:
+        print("DBエラー:", e)
+        return "エラーが発生しました", 500
+
     return render_template('board_sent.html')

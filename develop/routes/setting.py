@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, request, redirect, url_for, sessio
 import mysql.connector
 import os
 from dotenv import load_dotenv
+from werkzeug.security import generate_password_hash
+from werkzeug.security import check_password_hash
 
 load_dotenv()
 
@@ -22,7 +24,10 @@ def setting():
         email = request.form.get('email')
         password = request.form.get('password')
         location = request.form.get('location')
-
+        
+        # パスワードをハッシュ化（入力がある場合のみ）
+        hashed_password = generate_password_hash(password)
+        
         try:
             conn = mysql.connector.connect(**db_config)
             cursor = conn.cursor()
@@ -31,7 +36,7 @@ def setting():
                 UPDATE users
                 SET user_name=%s, email=%s, password=%s, prefecture_id=%s, updated_at=NOW()
                 WHERE user_id=%s
-            """, (username, email, password, location, user_id))
+            """, (username, email, hashed_password, location, user_id))
 
             conn.commit()
             

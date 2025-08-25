@@ -26,10 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // モーダル
 document.addEventListener("DOMContentLoaded", () => {
-    // 都道府県クリックイベント
-    document.querySelectorAll('[data-pref]').forEach(region => {
+    document.querySelectorAll('[data-code]').forEach(region => {
         region.addEventListener('click', () => {
-            const prefId = region.getAttribute('data-pref');
+            const prefId = region.getAttribute('data-code');  // ← svgの属性に合わせる
 
             fetch(`/get_board_image/${prefId}`)
                 .then(res => res.json())
@@ -40,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (data.image_path) {
                         const img = document.createElement('img');
-                        img.src = '/' + data.image_path;
+                        img.src = `/${data.image_path}`;
                         img.alt = "回覧板画像";
                         container.appendChild(img);
                     } else {
@@ -52,12 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // モーダルを閉じる
+    // モーダル閉じる
     document.querySelector(".close-button").addEventListener("click", () => {
         document.getElementById("board-modal").classList.add("hidden");
     });
 
-    // モーダル外クリックで閉じる
     document.getElementById("board-modal").addEventListener("click", (e) => {
         if (e.target.id === "board-modal") {
             e.target.classList.add("hidden");

@@ -3,6 +3,7 @@ from routes.config import get_db_connection
 from datetime import datetime
 import mysql.connector
 import os
+import random
 
 admin_completed_bp = Blueprint("admin_completed", __name__)
 
@@ -40,6 +41,33 @@ def completed_page():
         post_id = cursor.lastrowid
 
         cursor.execute("UPDATE boards SET post_id = %s WHERE board_id = %s", (post_id, board_id))
+        
+        
+        # 県内ユーザーを取得
+        cursor.execute("""
+            SELECT user_id FROM users
+            WHERE prefecture_id = %s
+        """, (prefecture_id,))
+        users = cursor.fetchall()
+
+        if users:
+            # board_members に全員 owner 登録
+            for u in users:
+                cursor.execute("""
+                    INSERT INTO board_members (board_id, user_id, role)
+                    VALUES (%s, %s, 'owner')
+                """, (board_id, u['user_id']))
+
+            # ランダムで editor を1人選ぶ
+            editor_id = random.choice([u['user_id'] for u in users])
+            cursor.execute("""
+                UPDATE board_members
+                SET role = 'editor'
+                WHERE board_id = %s AND user_id = %s
+            """, (board_id, editor_id))    
+        
+        
+        
 
         conn.commit()
         cursor.close()
