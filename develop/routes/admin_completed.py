@@ -41,6 +41,7 @@ def completed_page():
         post_id = cursor.lastrowid
 
         cursor.execute("UPDATE boards SET post_id = %s WHERE board_id = %s", (post_id, board_id))
+        cursor.execute("UPDATE posts SET board_id = %s WHERE post_id = %s", (board_id, post_id))
         
         
         # 県内ユーザーを取得
