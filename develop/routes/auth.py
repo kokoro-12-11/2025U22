@@ -39,7 +39,6 @@ def register():
             cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
             existing_user = cursor.fetchone()
             if existing_user:
-                flash("そのメールアドレスはすでに登録されています", "warning")
                 return redirect('/register')
 
             # 登録処理
@@ -49,13 +48,10 @@ def register():
                 (username, email, hashed_password, prefecture_id)
             )
             conn.commit()
-
-            flash("新規登録が完了しました！ログインしてください。", "success")
             return redirect('/login')
 
         except mysql.connector.Error as err:
             print("DB Error:", err)
-            flash("登録中にエラーが発生しました", "danger")
             return redirect('/register')
 
         finally:
@@ -87,7 +83,6 @@ def login():
             if user and check_password_hash(user['password'], password):
                 session['user_id'] = user['user_id']
                 session['user_name'] = user['user_name']
-                # flash("ログインに成功しました", "success")
                 return redirect("/top")
             else:
                 flash("ユーザー名またはパスワードが正しくありません", "danger")
@@ -95,7 +90,6 @@ def login():
 
         except mysql.connector.Error as err:
             print("DB Error:", err)
-            flash("ログイン中にエラーが発生しました", "danger")
             return redirect("/login")
 
         finally:
